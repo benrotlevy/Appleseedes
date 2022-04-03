@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid</title>
+    <style>
+
+        body {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            gap: 1rem;
+            grid-template-areas: 
+                    'header'
+                    'sidebar'
+                    'main'
+                    'sidebar-2'
+                    'footer';
+        }
+
+        .box {
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        .box-1 {
+            background: red;
+        }
+        .box-2 {
+            background: blue;
+        }
+        .box-3 {
+            background: green;
+        }
+        .box-4 {
+            background: purple;
+        }
+        .box-5 {
+            background: brown;
+        }
+
+        .box-1 {
+            grid-area: header;
+        }
+        .box-2 {
+            grid-area: sidebar;
+        }
+        .box-3 {
+            grid-area: main;
+        }
+        .box-4 {
+            grid-area: sidebar-2;
+        }
+        .box-5 {
+            grid-area: footer;
+        }
+
+        @media (min-width: 750px) and (max-width: 1200px){
+            .container {
+                grid-template-areas: 
+                    'header header header header'
+                    'sidebar main main main'
+                    'sidebar-2 sidebar-2 sidebar-2 sidebar-2'
+                    'footer footer footer footer';
+            }
+        }
+
+        @media (min-width: 1201px){
+            .container {
+                grid-template-areas: 
+                    'header header header header header'
+                    'sidebar main main main sidebar-2'
+                    'footer footer footer footer footer';
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box-1 box">Header</div>
+        <div class="box-2 box">Sidebar</div>
+        <div class="box-3 box">Content <br> More content than we had before so this column is now quite tall</div>
+        <div class="box-4 box">Sidebar 2</div>
+        <div class="box-5 box">Footer</div>
+    </div>
+</body>
+</html>
