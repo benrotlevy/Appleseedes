@@ -7,6 +7,15 @@
     <title>Grid Gallery</title>
     <style>
 
+        @media (max-width: 800px) and (min-width: 700px) {
+            .container {
+                grid-template-columns: 1fr !important;
+            }
+            .img {
+                grid-column: 1 !important;
+            }
+        }
+
         .container {
             height: 95vh;
             display: grid;
