@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         header {
@@ -25,24 +29,48 @@
 
         ul {
             background: lightblue;
-            padding: 1rem;
+            height: 10vh;
+            width: 100%;
+            /* padding: 1rem; */
             display: flex;
+            /* justify-content: center; */
+            /* align-items: center; */
+            margin: 0;
         }
 
         li {
+            height: 100%;
+            /* width: 9%; */
             list-style: none;
-            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         li a {
+            /* margin-top: 40px; */
+            padding:1.1rem 2rem;
+            color: rgb(66, 66, 146);
             text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        a:hover {
+            opacity: 0.7;
+            color: rgb(10, 90, 90);
+            background: rgb(110, 157, 218);
         }
 
         main {
             display: flex;
             flex-direction: column;
-            width: 90vw;
+            width: 80vw;
             margin: 0 50px;
+        }
+
+        h4 {
+            margin: 1rem 0;
         }
 
         .block {
@@ -63,20 +91,30 @@
 
         .box {
             justify-self: center;
-            width: 200px;
+            width: 35vw;
             border: 1px black solid;
-            height: 300px;
+            height: 50vw;
             margin-bottom: 30px;
         }
 
         @media (min-width: 1000px) {
+
+            main {
+                width: 90vw;
+            }
+
             section {
                 margin: 0 20px;
                 display: grid;
-                width: 90vw;
+                width: 94vw;
                 grid-template-columns: 1fr 1fr 1fr;
                 justify-content: center;
                 gap: 1rem;
+            }
+
+            .box {
+                width: 25vw;
+                height: 30vw;
             }
         }
 

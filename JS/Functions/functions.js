@@ -6,8 +6,10 @@ function describeCountry (country, population, capitalCity) {
 const israel = describeCountry('israel', 8, 'jerusalem');
 const fin = describeCountry('finland', 6, 'helsinki');
 const us = describeCountry('US', 300, 'washington DC');
+// let t = describeCountry;
 
 console.log(israel);
 console.log(fin);
 console.log(us);
+
 
