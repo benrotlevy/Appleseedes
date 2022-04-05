@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            height: 30vh;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: auto;
+        }
+
+        ul {
+            background: lightblue;
+            padding: 1rem;
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        li a {
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 90vw;
+            margin: 0 50px;
+        }
+
+        .block {
+            background: lightcyan;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            padding: 2rem 4rem;
+        }
+
+        section {
+            margin: 0 20px;
+            display: grid;
+            width: 90vw;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .box {
+            justify-self: center;
+            width: 200px;
+            border: 1px black solid;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 1000px) {
+            section {
+                margin: 0 20px;
+                display: grid;
+                width: 90vw;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Me</a></li>
+        </ul>
+        <h1>Welcome Home</h1>
+    </header>
+    <main>
+        <h4>put your name here</h4>
+        <div class="about block">
+            <p>
+                Hi there my name is Toam
+                I am a Web Developer 22 yeas old
+                and love animals
+            </p>
+        </div>
+        <div class="description block">
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Itaque vitae maiores
+            quibusdam est ipsam! Et repudiandae
+            dignissimos minus distinctio tempore
+            qui cum quod recusandae exercitationem
+            aut dolorem, repellat esse molestias
+            ipsa odit aperiam quidem doloribus ut
+            consectetur. Asperiores, odit blanditiis!
+        </div>
+    </main>
+    <section>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </section>
+</body>
+</html>
