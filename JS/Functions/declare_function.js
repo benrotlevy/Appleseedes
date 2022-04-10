@@ -42,7 +42,7 @@ function squareRoot (a) {
     return Math.sqrt(a);
 } 
 
-function randomNumbers (a, b) {
+function randomNumbers (a, b) {             
     return Math.random() * (a - b) + b;
 } 
 

@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  color: #fff;
+  font-family: Arimo, Arial, Helvetica, "Lucida Grande", sans-serif;
+  background: url(https://img.yts.mx/assets/images/movies/better_nate_than_ever_2022/background.jpg) no-repeat center center/cover; }
+
+nav {
+  height: 6vh;
+  background: #1D1D1D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #CCC; }
+  nav .left {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem; }
+    nav .left a {
+      margin-left: 46px; }
+    nav .left h2 {
+      font-weight: 400; }
+  nav .right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    nav .right ul a {
+      color: #CCC;
+      text-decoration: none;
+      padding: 0 1rem; }
+
+header {
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  header .description {
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; }
+    header .description h1 {
+      margin: 2rem; }
+  header .popular {
+    height: 60%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between; }
+    header .popular a {
+      width: 210px;
+      height: 315px;
+      border: 4px #fff solid;
+      border-radius: 5px; }
+    header .popular a:first-child {
+      background: url(https://img.yts.mx/assets/images/movies/alice_2022/medium-cover.jpg) no-repeat center center/cover; }
+    header .popular a:nth-child(2) {
+      background: url(https://img.yts.mx/assets/images/movies/better_nate_than_ever_2022/medium-cover.jpg) no-repeat center center/cover; }
+    header .popular a:nth-child(3) {
+      background: url(https://img.yts.mx/assets/images/movies/the_bubble_2022/medium-cover.jpg) no-repeat center center/cover; }
+    header .popular a:nth-child(4) {
+      background: url(https://img.yts.mx/assets/images/movies/life_and_death_in_the_warehouse_2022/medium-cover.jpg) no-repeat center center/cover; }
+
+/*# sourceMappingURL=style.css.map */
