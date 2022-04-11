@@ -11,7 +11,7 @@ const object1 = {
     c: false
 };
 
-const object2 = Object.assign({}, arr);
+const object2 = Object.assign({}, arr2);
 console.log(object2);
 
   
