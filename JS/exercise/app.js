@@ -5,7 +5,7 @@ const obj = {
     d : 4,
 };
 
-console.log(obj);
+// console.log(obj);
 
 const obj2 = {
     ...obj
