@@ -11,8 +11,9 @@ const print = (str) => {
 isString("benjamin", print);
 
 const firstWordUpperCase = (str, func) => {
-    let str2 = str.charAt(0).toUpperCase() + str.slice(1);
-    func(str);
+    let arr = str.split(" ");
+    arr[0] = arr[0].toUpperCase();
+    func(arr.join(" "));
 }
 
 const dashes = (str) => {
@@ -24,7 +25,7 @@ const dashes = (str) => {
             str2 += str[i] + "-";
         }
     }
-    console.log(str2);
+    console.log(str2);                 
 }
 
 firstWordUpperCase("benjamin", dashes);
