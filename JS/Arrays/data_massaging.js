@@ -71,13 +71,13 @@ const getFood = (arr) => {
     const obj = {};
     arr.forEach((e, i) => {
         for(let key in e.favoriteFoods) {
-            for(let food of arr[i].favoriteFoods[key]) {
+            arr[i].favoriteFoods[key].forEach((food) => {
                 if(obj[food]) {
                     obj[food] += 1;
                 } else {
                     obj[food] = 1;
                 }
-            }
+            })
         }
     })
     return obj;

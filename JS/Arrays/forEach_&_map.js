@@ -39,7 +39,7 @@ const vowelCount = (str) => {
     arr.forEach((e) => {
         if(e === "a" || e === "e" || e === "i" || e === "o" || e === "u") {
             if(obj[e]) {
-                obj[e] += 1;
+                obj[e]+= 1;
             } else {
                 obj[e] = 1;
             }
@@ -48,7 +48,7 @@ const vowelCount = (str) => {
     return obj;
 }
 
-// console.log(vowelCount("hello wOrld I AM BENjamin"));
+// console.log(vowelCount("hello wOrld I AM BENjaminaaa"));
 
 const capitalize = (str) => {
     const arr = str.split("");
