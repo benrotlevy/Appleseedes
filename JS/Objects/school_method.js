@@ -37,16 +37,33 @@ const school = {
             age: 21,
         },
     ],
-    assignStudent(subject) {
-        const teacher = this.teachers.find(e => e.subjects.includes(subject) && e.students.length < e.capacityLeft);
-        this.students.forEach(student => {
-            if(teacher.capacityLeft > 0) {
-                teacher.students.push(student);
-                teacher.capacityLeft -= 1;
-            } else {
-                console.log("Sorry,no available teachers left");
+    findPerson(type, id) {
+        // const found;
+        if(type.toLowerCase() === "teacher") {
+            const found = this.teachers.find(e => e.id === id);
+            if(found) {
+                return found;
             }
-        })
+            return "there is no teacher: " + id;
+        }
+        if(type.toLowerCase() === "student") {
+            const found = this.students.find(e => e.id === id);
+            if(found) {
+                return found;
+            }
+            return "there is no student: " + id;
+        }
+        return "type not valid";
+    },
+    assignStudent(subject, studentId) {
+        const student = this.students.find(e => e.id === studentId);
+        const teacher = this.teachers.find(e => e.subjects.includes(subject));
+        if(teacher && student && teacher.capacityLeft > 0) {
+            teacher.students.push(student);
+            teacher.capacityLeft -= 1;
+        } else {
+            console.log("Sorry,no available teachers left");
+        }
     },
     assignTeachersSubject(teacherId, newSubject) {
         const teacher = this.teachers.find(e => e.id === teacherId);
@@ -63,6 +80,7 @@ const school = {
 };
 
 // school.assignTeachersSubject(2, "talmud");
-school.assignStudent("biology");
-console.log(school.teachers[0]);
+// school.assignStudent("hl", 12);
+// console.log(school.teachers[0]);
+// console.log(school.findPerson("student", 1));
 
