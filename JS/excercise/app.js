@@ -20,7 +20,7 @@
 
 
 
-function f(a) {
-    return "f";
+function f() {
+    return 12 && -3;
 }
-console.log(-5 % 2);
+console.log(f());                     
