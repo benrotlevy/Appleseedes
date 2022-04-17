@@ -20,4 +20,7 @@
 
 
 
-
+function f(a) {
+    return "f";
+}
+console.log(-5 % 2);
