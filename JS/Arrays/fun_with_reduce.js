@@ -20,10 +20,10 @@ const sumOfEven = (arr) => {
 // console.log(sumOfEven(numbers));
 
 const average = (arr) => {
-    return arr.reduce((total, current) => {
-        if(arr.indexOf(current)+1 === arr.length) return (total + current) / arr.length;
+    return arr.reduce((total, current, i) => {
+        if(i+1 === arr.length) return (total + current) / arr.length;
         return (total + current);
     })
 }
 
-// console.log(average(numbers));
+console.log(average(numbers));
