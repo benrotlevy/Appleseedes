@@ -1,26 +1,44 @@
-// const obj = {
-//     a : 1,
-//     b : 2,
-//     c : 3,
-//     d : 4,
-// };
+// (function test() { test = 123; console.log( test );}())
 
-// console.log(obj);
+// var bird = 'Pidgeons';
+// ( function () {
+//     if ( typeof bird === 'undefined' ){
+//         var bird = 'Rubber Duck';
+//         console.log('Ernie loves his ' + bird );
+//     } else {
+//         console.log('Bert loves his ' + bird );
+//     }
+// }() );
 
-// const obj2 = {
-//     ...obj
-// };
+// {
+//     var a = 1;{
+//         var b = 2;{
+//             ( function() {
+//                 var c = a + b;
+//             } )()
+//         }
+//     }
+//     c;
+// }
 
-// console.log(obj2);
+// var name = 'John',
+//     obj = {
+//         name: 'Mary',
+//         whoIam: function() {
+//             var name = 'James';
 
-// const arr = [1,2,3,4];
-// const arr2 = [...arr];
+//             console.log( this.name );
 
-// console.log(arr);
+//             setTimeout( function () {
+//                 console.log( this.name );
+//             }, 100 );
+//         }
+//     };
+
+// obj.whoIam();
+// console.log(word);
+// word = 9;
 
 
 
-function f() {
-    return 12 && -3;
-}
-console.log(f());                     
+
