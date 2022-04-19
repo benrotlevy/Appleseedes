@@ -21,12 +21,14 @@
 // b2();
 // console.log(a);
 
-//log 1 a doesnt change
+//log 1 a doesnt change inside, function a is changed inside
 
-let i;
-for (i = 0; i < 3; i++) {
-    const log = () => {
-        console.log(i);
-    }
-    setTimeout(log, 100);
-}
+// let i;
+// for (i = 0; i < 3; i++) {
+//     const log = () => {
+//         console.log(i);
+//     }
+//     setTimeout(log, 100);
+// }
+
+// i is global so it change to 3 and then loged 3 times
