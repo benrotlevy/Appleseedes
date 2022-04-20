@@ -658,8 +658,8 @@ const carMarket = {
   carMarket.getAllCarToBuy = () => {
     const cars = [];
     for(let agency of carMarket.sellers) {
-        for(let car of agency.cars) {
-            for(let model of car.models) {
+        for(let brand of agency.cars) {
+            for(let model of brand.models) {
                 cars.push(model);
             }
         }
