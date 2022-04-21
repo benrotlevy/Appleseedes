@@ -19,6 +19,7 @@ Example 1:
 
 Input : haystack = "hello", needle = "ll"
 Output : 2
+
 Example 2:
 
 Input: haystack = "aaaaa", needle = "bba"
@@ -31,4 +32,11 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+    if(needle === "") {
+        return 0;
+    }
+    return haystack.indexOf(needle);
+};
+
+module.exports = strStr;

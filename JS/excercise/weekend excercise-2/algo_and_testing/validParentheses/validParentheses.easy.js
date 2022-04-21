@@ -14,13 +14,43 @@ Example 1:
 
 Input: s = "()"
 Output: true
+
 Example 2:
 
 Input: s = "()[]{}"
 Output: true
+
 Example 3:
 
 Input: s = "(]"
 Output: false
  */
-const isValid = function (s) {};
+const isValid = function (s) {
+    if(s.length % 2 === 1) {
+        return false;
+    }
+    for(let i=0; i<s.length-1; i+=2) {
+        switch(s[i]) {
+            case "(":
+                if(s[i+1] !== ")") {
+                    return false;
+                }
+                break;
+            case "[":
+                if(s[i+1] !== "]") {
+                    return false;
+                }
+                break;
+            case "{":
+                if(s[i+1] !== "}") {
+                    return false;
+                }
+                break;
+            default:
+                return false;
+        }
+    }
+    return true;
+};
+
+module.exports = isValid;

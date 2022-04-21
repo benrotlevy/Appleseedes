@@ -28,11 +28,13 @@ Example 1:
 Input: s = "III"
 Output: 3
 Explanation: III = 3.
+
 Example 2:
 
 Input: s = "LVIII"
 Output: 58
 Explanation: L = 50, V= 5, III = 3.
+
 Example 3:
 
 Input: s = "MCMXCIV"
@@ -40,4 +42,28 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+    let res = 0;
+    let previus;
+    let num;
+    for(let i=0; i<s.length; i++) {
+        if(i > 0) {
+            previus = num;
+        }
+        if(s[i] === "I") num =1;
+        if(s[i] === "V") num =5;
+        if(s[i] === "X") num =10;
+        if(s[i] === "L") num =50;
+        if(s[i] === "C") num =100;
+        if(s[i] === "D") num =500;
+        if(s[i] === "M") num =1000;
+        res += num;
+        if(num > previus) {
+            res -= previus*2;
+        }
+    }
+    return res;
+};
+
+module.exports = romanToInt;
+
