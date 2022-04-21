@@ -44,11 +44,11 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
 const romanToInt = function (s) {
     let res = 0;
-    let previus;
+    let previous;
     let num;
     for(let i=0; i<s.length; i++) {
         if(i > 0) {
-            previus = num;
+            previous = num;
         }
         if(s[i] === "I") num =1;
         if(s[i] === "V") num =5;
@@ -58,8 +58,8 @@ const romanToInt = function (s) {
         if(s[i] === "D") num =500;
         if(s[i] === "M") num =1000;
         res += num;
-        if(num > previus) {
-            res -= previus*2;
+        if(num > previous) {
+            res -= previous*2;
         }
     }
     return res;
