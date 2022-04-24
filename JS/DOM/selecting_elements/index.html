@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+        <a href="#">link</a>
+        <img src="" alt="" />
+        <div class="x">Div with a class</div>
+        <div id="y">Div with an id</div>
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </body>
+    <script>
+        const header = document.getElementsByTagName("h1");
+        console.log(header);
+        const p = document.getElementsByTagName("p");
+        console.log(p);
+        const a = document.getElementsByTagName("a");
+        console.log(a);
+        const img = document.getElementsByTagName("img");
+        console.log(img);
+        const x = document.getElementsByClassName("x");
+        console.log(x);
+        const y = document.getElementById("y");
+        console.log(y);
+        const input = document.getElementsByTagName("input");
+        console.log(input);
+
+        const arr = [...input];
+        arr.forEach(
+            (i) => {
+                console.log(i);
+            }
+        )
+
+    //     const header = document.querySelector("h1");
+    //     console.log(header);
+    //     const p = document.querySelector("p");
+    //     console.log(p);
+    //     const a = document.querySelector("a");
+    //     console.log(a);
+    //     const img = document.querySelector("img");
+    //     console.log(img);
+    //     const x = document.querySelector(".x");
+    //     console.log(x);
+    //     const y = document.querySelector("#y");
+    //     console.log(y);
+    //     const input = document.querySelectorAll("input");
+    //     console.log(input);
+
+    //     input.forEach(
+    //         (i) => {
+    //             console.log(i);
+    //         }
+    //     );
+    </script>
+</html>
