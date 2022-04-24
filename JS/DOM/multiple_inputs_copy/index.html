@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            height: 75vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 30%;
+            height: 30%;
+            border: 1px black solid;
+            padding: 2rem;
+        }
+
+        input[type="text"] {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: auto;
+            margin-top: 3rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Text to copy:</h1>
+    <h3>123456</h3>
+    <div class="box">
+        <form action="">
+            <input type="text" id="1" oninput=myFunc(id)>
+            <input type="text" id="2" oninput=myFunc(id)>
+            <input type="text" id="3" oninput=myFunc(id)>
+            <input type="text" id="4" oninput=myFunc(id)>
+            <input type="text" id="5" oninput=myFunc(id)>
+            <input type="text" id="6" oninput=myFunc(id)>
+            <input type="submit" value="Verify">
+        </form>
+    </div>
+</body>
+<script>
+    const list = document.querySelectorAll("input[type=text]");
+    function myFunc(id) {
+        if(list[id-1].value && id < 6) {
+            list[id].focus();
+        }
+        if(list[0].value && list[1].value && list[2].value && list[3].value &&list[4].value&&list[5].value) {
+            document.getElementsByTagName("form")[0].submit();
+        }
+    }
+    list.forEach((el, i) => {
+        el.addEventListener("paste", (event) => {
+            let paste = (event.clipboardData || window.clipboardData).getData('text');
+            // if(paste.length > 6) {
+            //     paste = "";
+            // }
+            const nums = paste.split("");
+            for(let i=0; i<nums.length; i++) {
+                list[i].value = nums[i];
+            }
+
+            if(nums.length === 6) {
+                document.getElementsByTagName("form")[0].submit();
+            }
+
+            event.preventDefault();
+        });
+    })
+
+    
+</script>
+</html>
