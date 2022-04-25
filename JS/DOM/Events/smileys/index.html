@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 75vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smileys {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .smiley {
+            width: 108px;
+            height: 126px;
+            background: url(./smiley.jpg);
+        }
+    </style>
+</head>
+<body>
+    <h4>How many smileys do you want to see?</h4>
+    <div class="box">
+        <input type="text">
+        <button>submit</button>
+    </div>
+    <div class="smileys">
+
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
