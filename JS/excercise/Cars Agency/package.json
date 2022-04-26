@@ -1,0 +1,14 @@
+{
+  "name": "cars-agency",
+  "version": "1.0.0",
+  "description": "cars-agency",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.0.0"
+  }
+}

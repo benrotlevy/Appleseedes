@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 5rem;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .box {
+            border: 1px black solid;
+            padding: 0.5rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to guess my letter</h1>
+        <div class="box">?</div>
+        <h3>Guess a letter</h3>
+        <h2>Keys guessed</h2>
+        <h2 class="keys"></h2>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>

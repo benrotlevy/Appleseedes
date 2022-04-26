@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 1rem 2rem;
+            margin-bottom: 1rem;
+        }
+        button[type="submit"] {
+            width: 50%;
+            align-self: center;
+            background-color: aqua;
+            color: black;
+        }
+        button {
+            margin: 0.5rem;
+            color: white;
+            background-color: black;
+        }
+        .confirmation {
+            width: 25%;
+            height: 20%;
+            border: 1px black solid;
+            background-color:aquamarine;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="name" id="name" placeholder="enter your name">
+        <input type="number" name="age" id="age" placeholder="enter your age">
+        <input type="email" name="email" id="email" placeholder="enter your email">
+        <button type="submit">Submit</button>
+    </form>
+    <script src="./app.js"></script>
+</body>
+</html>

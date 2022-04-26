@@ -628,18 +628,22 @@ const carMarket = {
 //? @param {string} - name
 //? @return {Object} - agency object
 
-  carMarket.getAgencyByName = (name) => {
-      return carMarket.sellers.find(agency => agency.agencyName === name);
+const getAgencyByName = (carMarket,name) => {
+  if(carMarket && carMarket.sellers) {
+    return carMarket.sellers.find(agency => agency.agencyName === name);
   }
+}
 
   //* getAgencyIdByName
   //? @param {String} - name
   //? @return {String} - agencyId
 
-  carMarket.getAgencyIdByName = (name) => {
-      const agency = carMarket.getAgencyByName(name);
+const getAgencyIdByName = (carMarket, name) => {
+    const agency = getAgencyByName(carMarket, name);
+    if(agency) {
       return agency.agencyId;
-  }
+    }
+}
 
   //* getAllAgenciesName
   //? @param {}
@@ -1004,3 +1008,8 @@ carMarket.addToSumTransactions = (amount) => {
 // console.log(carMarket.getAllCustomerCars("FQvNsEwLZ"));
 
 // console.log(carMarket.getAllCarToBuyByAgencyId("oqQmsZoUo"));
+const functions = {
+  getAgencyIdByName,
+  getAgencyByName
+}
+module.exports = functions;
