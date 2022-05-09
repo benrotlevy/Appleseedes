@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            font-size: 5rem;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        button:hover {
+            color: beige;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button>Joke of the day</button>
+    <script>
+        const btn = document.querySelector("button");
+        let clicked = false;
+        btn.addEventListener("click", () => {
+            if(!clicked) {
+                clicked = true;
+                const h3 = document.createElement("h3");
+                const h1 = document.createElement("h1");
+                importJoke("https://api.jokes.one/jod", h3, h1);
+            }
+        })
+        async function importJoke(url, h3, h1) {
+            const fetched = await fetch(url);
+            const json = await fetched.json();
+            h1.innerText = json.contents.jokes[0].joke.title;
+            document.body.append(h1);
+            h3.innerText = json.contents.jokes[0].joke.text;
+            document.body.append(h3);
+        }
+    </script>
+</body>
+</html>
