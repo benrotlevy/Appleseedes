@@ -39,7 +39,7 @@ function createCard(posterUrl, title, plot, genre, year, actors, director, ratin
     }
     const div = document.createElement("div");
     let output = `
-        <h2>${title}    ${year}</h2>
+        <h2>${title} ${year}</h2>
         <img src=${posterUrl}></img>
         <h2>Director: ${director}</h2>
         <h2>Actors: ${actors}</h2>
