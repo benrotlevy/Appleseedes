@@ -8,6 +8,10 @@ import { Card } from "./components/cards";
 import {Increment} from "./components/increment"
 import { HideAndSeek } from "./components/hide_and_seec";
 import { IncrementDecrement } from "./components/increment_decrement";
+import { LifeCycle } from "./components/life_cycle_methods";
+import { BoxAnimation } from "./components/box_animation";
+import { ChangingBox } from "./components/changing_box";
+import { SpinnerApp } from "./components/spinner/spinner";
 
 const App = function () {
     return (
@@ -46,7 +50,11 @@ const App = function () {
             /> */}
             {/* <Increment></Increment> */}
             {/* <HideAndSeek></HideAndSeek> */}
-            <IncrementDecrement/>
+            {/* <IncrementDecrement/> */}
+            {/* <LifeCycle></LifeCycle> */}
+            {/* <BoxAnimation /> */}
+            {/* <ChangingBox/> */}
+            <SpinnerApp/>
         </div>
     );
 };
