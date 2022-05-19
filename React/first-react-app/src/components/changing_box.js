@@ -25,7 +25,7 @@ export class ChangingBox extends React.Component {
                 });
 
             }, 500)
-        } else if(this.state.numChanges === 3) {
+        } else if(this.state.numChanges === 3) {               
             setTimeout(()=> {
                 this.setState((prev)=>{ 
                     prev.color.shift();
