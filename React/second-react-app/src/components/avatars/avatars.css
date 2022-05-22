@@ -1,0 +1,13 @@
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.avatars-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem
+}

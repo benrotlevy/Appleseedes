@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Avatars } from './components/avatars/avatars';
 import { FormToCheckBox } from './components/checkBox';
 import Parent from './components/childToParent';
+import { ChackNorrisJokes } from './components/chuckNorris';
+import { DataMassaging } from './components/data-massaging/dataMassaging';
 import { FormReview } from './components/formReview';
 
 
@@ -10,7 +13,10 @@ root.render(
   <React.StrictMode>
     {/* <Parent></Parent> */}
     {/* <FormToCheckBox></FormToCheckBox> */}
-    <FormReview/>
+    {/* <FormReview/> */}
+    {/* <ChackNorrisJokes></ChackNorrisJokes> */}
+    {/* <DataMassaging /> */}
+    <Avatars />
   </React.StrictMode>
 );
 
