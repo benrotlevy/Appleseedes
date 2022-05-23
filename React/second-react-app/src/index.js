@@ -4,7 +4,9 @@ import { Avatars } from './components/avatars/avatars';
 import { FormToCheckBox } from './components/checkBox';
 import Parent from './components/childToParent';
 import { ChackNorrisJokes } from './components/chuckNorris';
+import { Copy } from './components/Copy';
 import { DataMassaging } from './components/data-massaging/dataMassaging';
+import { Focus } from './components/focus';
 import { FormReview } from './components/formReview';
 
 
@@ -16,7 +18,9 @@ root.render(
     {/* <FormReview/> */}
     {/* <ChackNorrisJokes></ChackNorrisJokes> */}
     {/* <DataMassaging /> */}
-    <Avatars />
+    {/* <Avatars /> */}
+    {/* <Focus/> */}
+    <Copy/>
   </React.StrictMode>
 );
 

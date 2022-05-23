@@ -44,7 +44,7 @@ export class Avatars extends React.Component {
         } catch(error) {
             console.log(error);
         }
-    }
+    }            
 
     onInputChange = (event) => {
         this.setState({inputValue: event.target.value});
