@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { MainAvatarApp } from './components/avatar-crud-mock-api/main-avatar-app';
 import { Avatars } from './components/avatars/avatars';
 import { FormToCheckBox } from './components/checkBox';
 import Parent from './components/childToParent';
@@ -9,6 +10,7 @@ import { DataMassaging } from './components/data-massaging/dataMassaging';
 import { Focus } from './components/focus';
 import { FormReview } from './components/formReview';
 import { AppRouter } from './components/react-router/App-Router';
+import { ToDoList } from './components/toDoList/TodoList';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +24,9 @@ root.render(
       {/* <Avatars /> */}
       {/* <Focus/> */}
       {/* <Copy/> */}
-      <AppRouter/>
+      {/* <ToDoList/> */}
+      {/* <AppRouter/> */}
+      <MainAvatarApp/>
     </React.StrictMode>
 );
 
