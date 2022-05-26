@@ -1,20 +1,25 @@
+import axios from "axios";
 import React from "react";
 import { avatars } from "../api";
-import { Avatar } from "../avatar/Avatar";
 
 export class CreateAvatar extends React.Component {
 
-    state = {name: "", gender: "", phone: "", country: "", avatar: "", createdAt: ""}
+    state = {name: "", gender: "", phone: "", country: "", avatar: "", createdAt: "", isSubmit: false}
 
     onInputChange = (target) => {
         this.setState({[target.name]: target.value});
     }
 
-    create = async() => {
-        if(this.allInputsFull) {
+    create = async({target}) => {
+        target.disabled= true;
+        if(this.allInputsFull() && this.state.name.length > 4 && !this.state.isSubmit) {
             try {
+                this.setState({isSubmit: true});
+                await axios.get(this.state.avatar);
                 const newAvatar = {...this.state};
+                delete newAvatar.isSubmit;
                 const {data} = await avatars.post("/", newAvatar);
+                this.setState({isSubmit: false});
                 this.props.history.push(`/avatar/${data.id}`);
             } catch(error) {
                 console.log(error);
@@ -24,7 +29,7 @@ export class CreateAvatar extends React.Component {
 
     allInputsFull = () => {
         for(let key in this.state) {
-            if(!this.state[key]) {
+            if(!this.state[key] && key !== "isSubmit") {
                 return false;
             }
         }
