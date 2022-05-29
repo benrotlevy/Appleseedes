@@ -9,7 +9,11 @@ import { Copy } from './components/Copy';
 import { DataMassaging } from './components/data-massaging/dataMassaging';
 import { Focus } from './components/focus';
 import { FormReview } from './components/formReview';
+import { Marking } from './components/marking/Marking';
 import { AppRouter } from './components/react-router/App-Router';
+import { SimpleToDo } from './components/simple-todo/SimpleToDo';
+import { TextApp } from './components/text/TextApp';
+import { Time } from './components/time/Time';
 import { ToDoList } from './components/toDoList/TodoList';
 
 
@@ -26,7 +30,11 @@ root.render(
       {/* <Copy/> */}
       {/* <ToDoList/> */}
       {/* <AppRouter/> */}
-      <MainAvatarApp/>
+      {/* <MainAvatarApp/> */}
+      {/* <TextApp /> */}
+      {/* <SimpleToDo /> */}
+      {/* <Time /> */}
+      <Marking />
     </React.StrictMode>
 );
 
