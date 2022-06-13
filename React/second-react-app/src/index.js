@@ -51,7 +51,7 @@ root.render(
         {/* <Cancel /> */}
         {/* <Editing /> */}
         {/* <Video /> */}
-        <ImageToggle />
+        {/* <ImageToggle /> */}
       </>
     </React.StrictMode>
 );

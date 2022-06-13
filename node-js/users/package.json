@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "uniqid": "^5.4.0"
+  }
+}
