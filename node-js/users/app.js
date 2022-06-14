@@ -49,11 +49,11 @@ const deleteUser = (id) => {
     saveUsers(filterUsers);
 }
 
-// addUser("ben", "ben@rotlevy.com");
+addUser("ben", "ben@rotlevy.com");
 // addUser("yossi", "yossi@rotlevy.com");
 // addUser("yael", "yael@rotlevy.com");
 // addUser("avi", "avi@rotlevy.com");
 // updateUser("5q37dwol4ck19di" ,"benjamin", "benjamin@rotlevy.com");
 // readUser("5q37dwol4ck19di");
-deleteUser("5q37dwol4ck19di");
+// deleteUser("5q37dwol4ck19di");
 
