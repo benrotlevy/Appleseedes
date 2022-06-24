@@ -1,9 +1,5 @@
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://127.0.0.1:27017/products", {
-  useNewUrlParser: true,
-  //   useCreateIndex: true,
-});
+const bcrypt = require("bcryptjs");
 
 const detailes = new mongoose.Schema({
   description: {
@@ -26,6 +22,7 @@ const detailes = new mongoose.Schema({
   },
   images: {
     type: [String],
+    require: true,
     validate(value) {
       if (value.length < 2) {
         throw new Error("product must have at least 2 images");
@@ -54,9 +51,10 @@ const detailes = new mongoose.Schema({
   },
 });
 
-const Product = mongoose.model("Product", {
+const productSchema = mongoose.Schema({
   name: {
     type: String,
+    unique: true,
     require: true,
   },
   category: {
@@ -66,27 +64,33 @@ const Product = mongoose.model("Product", {
   isActive: {
     type: Boolean,
   },
+  password: {
+    type: String,
+    require: true,
+  },
   detailes: {
     type: detailes,
   },
 });
 
-const guitar = new Product({
-  name: "guitar",
-  category: "music",
-  detailes: {
-    description: "fsdhsghtdghehe",
-    price: 5,
-    images: ["sfdgsg", "trhrrderh"],
-    phone: "+972586889067",
-  },
+productSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    this.password = await bcrypt.hash(this.password, 8);
+  }
+  next();
 });
 
-guitar
-  .save()
-  .then(() => {
-    console.log(guitar);
-  })
-  .catch((error) => {
-    console.log("Error: ", error);
-  });
+productSchema.statics.findByCredentials = async (name, passsword) => {
+  const product = await Product.findOne({ name });
+  //   console.log(product);
+  let error = false;
+  if (!product) error = true;
+  if (bcrypt.compare(passsword, product.password)) error = true;
+  if (error) throw new Error("failed to login");
+
+  return product;
+};
+
+const Product = mongoose.model("Product", productSchema);
+
+module.exports = Product;
