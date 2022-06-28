@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const detailes = new mongoose.Schema({
   description: {
@@ -71,6 +72,14 @@ const productSchema = mongoose.Schema({
   detailes: {
     type: detailes,
   },
+  tokens: [
+    {
+      token: {
+        type: String,
+        require: true,
+      },
+    },
+  ],
 });
 
 productSchema.pre("save", async function (next) {
@@ -80,12 +89,27 @@ productSchema.pre("save", async function (next) {
   next();
 });
 
-productSchema.statics.findByCredentials = async (name, passsword) => {
+productSchema.methods.toJSON = function () {
+  const public = this.toObject();
+  delete public.password;
+  delete public.tokens;
+  return public;
+};
+
+productSchema.methods.generateToken = async function () {
+  const token = jwt.sign({ id: this._id.toString() }, "secret string");
+  this.tokens = this.tokens.concat({ token });
+  await this.save();
+  return token;
+};
+
+productSchema.statics.findByCredentials = async (name, password) => {
   const product = await Product.findOne({ name });
   //   console.log(product);
   let error = false;
   if (!product) error = true;
-  if (bcrypt.compare(passsword, product.password)) error = true;
+  const match = await bcrypt.compare(password, product.password);
+  if (!match) error = true;
   if (error) throw new Error("failed to login");
 
   return product;

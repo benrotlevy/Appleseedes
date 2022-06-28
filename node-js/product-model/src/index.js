@@ -1,6 +1,7 @@
 const express = require("express");
 require("./db/mongoose.js");
 const Product = require("./models/product.js");
+const auth = require("./middleware/auth.js");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,7 +12,8 @@ app.post("/products", async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
-    res.status(201).send(product);
+    const token = await product.generateToken();
+    res.status(201).send({ product, token });
   } catch (error) {
     res.status(400).send(error);
   }
@@ -23,16 +25,39 @@ app.post("/products/login", async (req, res) => {
       req.body.name,
       req.body.password
     );
-    res.status(200).send(product);
+    const token = await product.generateToken();
+    res.status(200).send({ product, token });
   } catch (error) {
     res.status(400).send(error.message);
   }
 });
 
-app.get("/products", async (req, res) => {
+app.post("/products/logout", auth, async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.send(products);
+    req.product.tokens = req.product.tokens.filter((token) => {
+      return token.token !== req.token;
+    });
+    await req.product.save();
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
+app.post("/products/logoutAll", auth, async (req, res) => {
+  try {
+    req.product.tokens = [];
+    await req.product.save();
+    res.send();
+  } catch (e) {
+    res.status(500).send();
+  }
+});
+
+app.get("/products/me", auth, async (req, res) => {
+  try {
+    // const products = await Product.find({});
+    res.send(req.product);
   } catch (error) {
     res.status(500).send();
   }
@@ -76,13 +101,13 @@ app.get("/productsBYPrice/", async (req, res) => {
   }
 });
 
-app.patch("/products/:id", async (req, res) => {
+app.patch("/products/me", auth, async (req, res) => {
   const updates = Object.keys(req.body);
   const allowed = ["discount", "isActive", "password"];
   const isValid = updates.every((update) => allowed.includes(update));
   try {
     if (!isValid) throw new Error("operation not valid");
-    const product = await Product.findById(req.params.id);
+    const product = req.product;
     if (req.body.discount) product.detailes.discount = req.body.discount;
     if (req.body.isActive) product.isActive = req.body.isActive;
     if (req.body.password) product.password = req.body.password;
@@ -94,18 +119,14 @@ app.patch("/products/:id", async (req, res) => {
   }
 });
 
-app.delete("/products/:id", async (req, res) => {
+app.delete("/products/me", auth, async (req, res) => {
   try {
-    const id = req.params.id;
-    const product = await Product.findByIdAndDelete(id);
-    if (!product) {
-      return res.status(400).send();
-    }
-    res.send(product);
+    req.product.remove();
+    res.send(req.product);
   } catch (error) {
-    if (error.name === "CastError") {
-      res.status(400).send();
-    }
+    // if (error.name === "CastError") {
+    //   res.status(400).send();
+    // }
     res.status(500).send();
   }
 });
